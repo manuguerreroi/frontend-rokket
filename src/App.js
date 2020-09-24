@@ -16,7 +16,7 @@ import {
 import { Add, Delete } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 
-const apiUrlaBase = 'http://localhost:10000/api/foods';
+const apiUrlaBase = 'http://localhost:10000/api/foods/';
 const useStyles = makeStyles((theme) => ({
  
   button: {
@@ -89,16 +89,18 @@ function App() {
   };
 
   const seleccionarComida = (comida) => {
-    setFood(comida);
-    abrirCerrarModalEliminar();
+    setFood(comida)
+    abrirCerrarModalEliminar()
   };
 
-  const peticionDelete = () => {
-    axios.delete(`${apiUrlaBase+food._id}`);
+  const peticionDelete =  () => {
 
-    setData(data.filter((x) => x._id !== food._id));
+    axios.delete(apiUrlaBase+food._id)
+    setData(data.filter((x) => x._id !== food._id))
 
-    abrirCerrarModalEliminar();
+    abrirCerrarModalEliminar()
+    
+
   };
 
   const bodyEliminar = (
